@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Domain.Entities
+namespace Domain
 {
-	public class Item
+	public class Project
 	{
 		public int Id { get; set; }
 		public string Name { get; set; }
 
-		public virtual User User { get; set; }
-		public virtual Project Project { get; set; }
+		public virtual ICollection<User> Users { get; set; }
+		public virtual ICollection<Item> Items { get; set; }
 	}
 }

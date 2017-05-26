@@ -5,12 +5,15 @@ using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Domain.Entities;
+using Domain;
 
-namespace CodeFirst
+namespace Model.Implementations
 {
 	public class DatabaseContext : DbContext
 	{
+		public DatabaseContext()
+			: base("name=ProjectDB1") { }
+
 		public DbSet<User> Users { get; set; }
 		public DbSet<Item> Items { get; set; }
 		public DbSet<Project> Projects { get; set; }
