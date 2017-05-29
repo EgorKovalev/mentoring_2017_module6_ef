@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain;
 using Model.Implementations;
+using Model.Interfaces;
 
 namespace CodeFirst
 {
@@ -12,65 +13,35 @@ namespace CodeFirst
 	{
 		static void Main(string[] args)
 		{
-			//using (var db = new DatabaseContext())
-			//{
-			//	var FirstUser = new User()
-			//	{
-			//		Name = "Test name",
-			//		Role = Role.Developer
-			//	};
+			DatabaseContext context = new DatabaseContext();
+			EfItemRepository itemRepository = new EfItemRepository(context);
+			EfProjectRepository projectRepository = new EfProjectRepository(context);
+			EfUserRepository userRepository = new EfUserRepository(context);
 
-			//	db.Users.Add(FirstUser);
-			//	db.SaveChanges();
-
-			//	var FirstProject = new Project()
-			//	{
-			//		Name = "Test project",
-			//		Users = db.Users.Where(user => user.Name.Equals(FirstUser.Name)).ToList()					
-			//	};
-
-			//	db.Projects.Add(FirstProject);
-			//	db.SaveChanges();
-
-			//	var FirstItem = new Item()
-			//	{
-			//		Name = "Test item",
-			//		Project = FirstProject,
-			//		User = FirstUser
-			//	};
-
-			//	db.Items.Add(FirstItem);
-			//	db.SaveChanges();
-			//}
-
-			EfItemRepository ItemRepository = new EfItemRepository();
-			EfProjectRepository ProjectRepository = new EfProjectRepository();
-			EfUserRepository UserRepository = new EfUserRepository();
-
-			var FirstUser = new User()
+			User user1 = userRepository.Add(new User()
 			{
 				Name = "Test name",
-				Role = Role.Developer
-			};
+				Role = Role.Developer,
+			});	
 
-			UserRepository.Save(FirstUser);			
-
-			var FirstProject = new Project()
+			var project1 = new Project()
 			{
 				Name = "Test project",
-				Users = UserRepository.Get.Where(user => user.Name.Equals(FirstUser.Name)).ToList()
+				Users = userRepository.Get().Where(user => user.Name.Equals(user1.Name)).ToList()
 			};
+			projectRepository.Add(project1);
 
-			ProjectRepository.Save(FirstProject);
+			user1.Projects.Add(project1);			
 
-			var FirstItem = new Item()
+			var item1 = new Item()
 			{
 				Name = "Test item",
-				Project = FirstProject,
-				User = FirstUser
+				Project = project1,
+				User = user1
 			};
 
-			ItemRepository.Save(FirstItem);
+			itemRepository.Add(item1);			
+			itemRepository.CommitChanges();
 		}
 	}
 }

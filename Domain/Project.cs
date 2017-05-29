@@ -8,6 +8,13 @@ namespace Domain
 {
 	public class Project
 	{
+
+		public Project()
+		{
+			Users = new List<User>();
+			Items = new List<Item>();
+		}
+
 		public int Id { get; set; }
 		public string Name { get; set; }
 

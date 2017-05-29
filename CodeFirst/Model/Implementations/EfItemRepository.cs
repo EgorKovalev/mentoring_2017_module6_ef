@@ -10,11 +10,19 @@ namespace Model.Implementations
 {
 	public class EfItemRepository : IRepository<Item>
 	{
-		readonly DatabaseContext _dbContext = new DatabaseContext();
+		readonly DatabaseContext _dbContext;
 
-		public IEnumerable<Item> Get { get; private set; }
+		public EfItemRepository(DatabaseContext dbContext)
+		{
+			_dbContext = dbContext;
+		}
 
-		public Item Save(Item ob)
+		public IEnumerable<Item> Get()
+		{
+			return _dbContext.Items;
+		}
+
+		public Item Add(Item ob)
 		{
 			return _dbContext.Items.Add(ob);
 		}
@@ -23,6 +31,11 @@ namespace Model.Implementations
 		{
 			Item user = _dbContext.Items.FirstOrDefault(u => u.Id == id);
 			return _dbContext.Items.Remove(user);
+		}
+
+		public void CommitChanges()
+		{
+			_dbContext.SaveChanges();
 		}
 	}
 }

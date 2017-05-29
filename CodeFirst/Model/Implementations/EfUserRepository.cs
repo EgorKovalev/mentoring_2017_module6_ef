@@ -10,19 +10,32 @@ namespace Model.Implementations
 {
 	public class EfUserRepository : IRepository<User>
 	{
-		readonly DatabaseContext _dbContext = new DatabaseContext(); 
+		readonly DatabaseContext _dbContext;
 
-		public IEnumerable<User> Get { get; private set; }
-		
-		public User Save(User ob)
+		public EfUserRepository(DatabaseContext dbContext)
 		{
-			return _dbContext.Users.Add(ob);
+			_dbContext = dbContext;
+		}
+
+		public IEnumerable<User> Get()
+		{
+			return _dbContext.Users;
+		}
+		
+		public User Add(User ob)
+		{
+			return _dbContext.Users.Add(ob);						
 		}
 		
 		public User Delete(int id)
 		{
 			User user = _dbContext.Users.FirstOrDefault(u => u.Id == id);
 			return _dbContext.Users.Remove(user);
+		}
+
+		public void CommitChanges()
+		{
+			_dbContext.SaveChanges();
 		}
 	}
 }

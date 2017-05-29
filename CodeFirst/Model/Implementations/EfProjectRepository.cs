@@ -10,11 +10,19 @@ namespace Model.Implementations
 {
 	public class EfProjectRepository : IRepository<Project>
 	{
-		readonly DatabaseContext _dbContext = new DatabaseContext();
+		readonly DatabaseContext _dbContext;
 
-		public IEnumerable<Project> Get { get; private set; }
+		public EfProjectRepository(DatabaseContext dbContext)
+		{
+			_dbContext = dbContext;
+		}
 
-		public Project Save(Project ob)
+		public IEnumerable<Project> Get() 
+		{
+			return _dbContext.Projects;
+		}
+
+		public Project Add(Project ob)
 		{
 			return _dbContext.Projects.Add(ob);
 		}
@@ -23,6 +31,11 @@ namespace Model.Implementations
 		{
 			Project user = _dbContext.Projects.FirstOrDefault(u => u.Id == id);
 			return _dbContext.Projects.Remove(user);
+		}
+
+		public void CommitChanges()
+		{
+			_dbContext.SaveChanges();
 		}
 	}
 }

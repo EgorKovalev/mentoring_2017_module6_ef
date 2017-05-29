@@ -18,6 +18,12 @@ namespace Domain
 		public int Id { get; set; }
 		public string Name { get; set; }
 
+		public User()
+		{
+			Projects = new List<Project>();
+			Items = new List<Item>();
+		}
+
 		public virtual ICollection<Item> Items { get; set; }
 		public virtual ICollection<Project> Projects { get; set; }
 		public virtual Role Role { get; set; }
