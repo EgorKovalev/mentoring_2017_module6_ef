@@ -10,7 +10,7 @@ using Model.Interfaces;
 
 namespace Model.Implementations
 {
-	public class EfGenericRepository<T> where T : class
+	public class EfGenericRepository<T> : IRepository<T> where T : class
 	{
 		internal readonly DatabaseContext _dbContext;
 		internal readonly DbSet<T> _dbSet;
