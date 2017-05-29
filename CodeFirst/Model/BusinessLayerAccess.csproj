@@ -49,9 +49,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Implementations\DatabaseContext.cs" />
-    <Compile Include="Implementations\EfProjectRepository.cs" />
-    <Compile Include="Implementations\EfItemRepository.cs" />
-    <Compile Include="Implementations\EfUserRepository.cs" />
+    <Compile Include="Implementations\EfGenericRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

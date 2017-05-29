@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Domain;
 using Model.Implementations;
 using Model.Interfaces;
+using Wrapper;
 
 namespace CodeFirst
 {
@@ -13,25 +14,22 @@ namespace CodeFirst
 	{
 		static void Main(string[] args)
 		{
-			DatabaseContext context = new DatabaseContext();
-			EfItemRepository itemRepository = new EfItemRepository(context);
-			EfProjectRepository projectRepository = new EfProjectRepository(context);
-			EfUserRepository userRepository = new EfUserRepository(context);
+			Repository context = new Repository();
 
-			User user1 = userRepository.Add(new User()
+			User user1 = context.UserRepository.Add(new User()
 			{
 				Name = "Test name",
 				Role = Role.Developer,
-			});	
+			});
 
 			var project1 = new Project()
 			{
 				Name = "Test project",
-				Users = userRepository.Get().Where(user => user.Name.Equals(user1.Name)).ToList()
+				Users = context.UserRepository.Get().Where(user => user.Name.Equals(user1.Name)).ToList()
 			};
-			projectRepository.Add(project1);
+			context.ProjectRepository.Add(project1);
 
-			user1.Projects.Add(project1);			
+			user1.Projects.Add(project1);
 
 			var item1 = new Item()
 			{
@@ -40,8 +38,8 @@ namespace CodeFirst
 				User = user1
 			};
 
-			itemRepository.Add(item1);			
-			itemRepository.CommitChanges();
+			context.ItemRepository.Add(item1);
+			context.CommitChanges();
 		}
 	}
 }
