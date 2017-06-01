@@ -1,14 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Domain;
 using Model.Implementations;
 
 namespace Wrapper
 {
-	public class Repository : IDisposable
+    public class Repository : IDisposable
 	{
 		private DatabaseContext _dbContext = new DatabaseContext();
 		private EfGenericRepository<Item> _itemRepository;

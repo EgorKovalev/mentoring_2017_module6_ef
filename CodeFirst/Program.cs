@@ -1,16 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Linq;
 using Domain;
-using Model.Implementations;
-using Model.Interfaces;
 using Wrapper;
 
 namespace CodeFirst
 {
-	class Program
+    class Program
 	{
 		static void Main(string[] args)
 		{
