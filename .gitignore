@@ -4,3 +4,11 @@
 
 /CodeFirst/packages/EntityFramework.6.1.3
 /CodeFirst/bin/Debug
+/CodeFirst/.vs/CodeFirst/v14
+/CodeFirst/obj/Debug
+/CodeFirst/Model/bin/Debug
+/CodeFirst/Model/obj/Debug
+/Domain/bin/Debug
+/Domain/obj/Debug
+/Wrapper/bin/Debug
+/Wrapper/obj/Debug

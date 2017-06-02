@@ -1,6 +1,7 @@
 ﻿using System.Linq;
 using Domain;
 using Wrapper;
+using Domain.Entities;
 
 namespace CodeFirst
 {
@@ -10,30 +11,39 @@ namespace CodeFirst
 		{
 			Repository context = new Repository();
 
-			User user1 = context.UserRepository.Add(new User()
-			{
-				Name = "Test name",
-				Role = Role.Developer,
-			});
+            User testUser = context.UserRepository.Add(new User()
+            {
+                Name = "Test user",
+                Login = "Test",
+                Email = "test.email@email.com",
+                Password = "123456",
+                Phone = "1234567"
+            });
 
-			var project1 = new Project()
-			{
-				Name = "Test project",
-				Users = context.UserRepository.Get().Where(user => user.Name.Equals(user1.Name)).ToList()
-			};
-			context.ProjectRepository.Add(project1);
+            Auction testAuction = new Auction()
+            {
+                Name = "Test auction",
+                Description = "Auction description",
+                Users = context.UserRepository.Get().Where(user => user.Name.Equals(testUser.Name)).ToList()
+            };
+            context.AuctionRepository.Add(testAuction);
 
-			user1.Projects.Add(project1);
+            Item testItem = new Item()
+            {
+                Name = "Test item",
+                Description = "Item description",
+                Auction = testAuction                                
+            };
+            context.ItemRepository.Add(testItem);
 
-			var item1 = new Item()
-			{
-				Name = "Test item",
-				Project = project1,
-				User = user1
-			};
+            Bid testBid = new Bid()
+            {
+                Item = testItem,
+                User = testUser
+            };
+            context.BidRepository.Add(testBid);            
 
-			context.ItemRepository.Add(item1);
-			context.CommitChanges();
+            context.CommitChanges();
 		}
 	}
 }

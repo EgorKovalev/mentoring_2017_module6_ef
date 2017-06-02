@@ -7,7 +7,7 @@ namespace Domain.Entities
         public Item()
         {
             Bids = new List<Bid>();
-            Images = new List<Image>();
+            //Images = new List<Image>();
         }
 
         //fields
@@ -17,9 +17,9 @@ namespace Domain.Entities
 
         //links
         public virtual Auction Auction { get; set; }
-        public virtual Category Category { get; set; }
-        public virtual Period Period { get; set; }
+        //public virtual Category Category { get; set; }
+        //public virtual Period Period { get; set; }
         public virtual ICollection<Bid> Bids { get; set; }
-        public virtual ICollection<Image> Images { get; set; }
+        //public virtual ICollection<Image> Images { get; set; }
     }
 }

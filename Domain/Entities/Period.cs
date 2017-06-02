@@ -11,7 +11,7 @@ namespace Domain.Entities
         public int Term { get; set; }
 
         //links
-        public virtual Item Item { get; set; }
-        public virtual Auction Auction { get; set; }
+        //public virtual Item Item { get; set; }
+        //public virtual Auction Auction { get; set; }
     }
 }

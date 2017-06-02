@@ -8,6 +8,6 @@
         public string Name { get; set; }
 
         //links
-        public virtual Item Item { get; set; }
+        //public virtual Item Item { get; set; }
     }
 }
