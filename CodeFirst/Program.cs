@@ -1,6 +1,4 @@
-﻿using System.Linq;
-using Domain;
-using Wrapper;
+﻿using Wrapper;
 using Domain.Entities;
 
 namespace CodeFirst
@@ -20,28 +18,28 @@ namespace CodeFirst
                 Phone = "1234567"
             });
 
-            Auction testAuction = new Auction()
-            {
-                Name = "Test auction",
-                Description = "Auction description",
-                Users = context.UserRepository.Get().Where(user => user.Name.Equals(testUser.Name)).ToList()
-            };
-            context.AuctionRepository.Add(testAuction);
+            //Auction testAuction = new Auction()
+            //{
+            //    Name = "Test auction",
+            //    Description = "Auction description",
+            //    Users = context.UserRepository.Get().Where(user => user.Name.Equals(testUser.Name)).ToList()
+            //};
+            //context.AuctionRepository.Add(testAuction);
 
-            Item testItem = new Item()
-            {
-                Name = "Test item",
-                Description = "Item description",
-                Auction = testAuction                                
-            };
-            context.ItemRepository.Add(testItem);
+            //Item testItem = new Item()
+            //{
+            //    Name = "Test item",
+            //    Description = "Item description",
+            //    Auction = testAuction                                
+            //};
+            //context.ItemRepository.Add(testItem);
 
-            Bid testBid = new Bid()
-            {
-                Item = testItem,
-                User = testUser
-            };
-            context.BidRepository.Add(testBid);            
+            //Bid testBid = new Bid()
+            //{
+            //    Item = testItem,
+            //    User = testUser
+            //};
+            //context.BidRepository.Add(testBid);            
 
             context.CommitChanges();
 		}

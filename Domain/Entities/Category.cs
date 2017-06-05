@@ -6,7 +6,7 @@ namespace Domain.Entities
     {
         public Category()
         {
-            //Items = new List<Item>();
+            Items = new List<Item>();
         }
 
         //fields
@@ -14,6 +14,6 @@ namespace Domain.Entities
         public string Name { get; set; }
 
         //links
-        //public virtual ICollection<Item> Items { get; set; }
+        public virtual ICollection<Item> Items { get; set; }
     }
 }
