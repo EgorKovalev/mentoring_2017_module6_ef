@@ -60,7 +60,7 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CodeFirst\Model\BusinessLayerAccess.csproj">
+    <ProjectReference Include="..\BusinessLayerAccess\BusinessLayerAccess.csproj">
       <Project>{32f50e18-dbba-4f59-bbc0-c3c3ee21949b}</Project>
       <Name>BusinessLayerAccess</Name>
     </ProjectReference>

@@ -1,6 +1,6 @@
 ﻿using System;
-using Model.Implementations;
 using Domain.Entities;
+using BusinessLayerAccess.Implementations;
 
 namespace Wrapper
 {

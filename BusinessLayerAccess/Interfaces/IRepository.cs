@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 
-namespace Model.Interfaces
+namespace BusinessLayerAccess.Interfaces
 {
     interface IRepository<T>
 	{

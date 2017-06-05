@@ -15,3 +15,5 @@
 /Models/bin/Debug
 /Models/obj/Debug
 /CodeFirst/packages/AutoMapper.6.0.2
+/BusinessLayerAccess/bin/Debug
+/BusinessLayerAccess/obj/Debug

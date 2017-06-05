@@ -1,8 +1,8 @@
-﻿using System.Data.Entity;
+﻿using Domain.Entities;
+using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration.Conventions;
-using Domain.Entities;
 
-namespace Model.Implementations
+namespace BusinessLayerAccess.Implementations
 {
     public class DatabaseContext : DbContext
 	{

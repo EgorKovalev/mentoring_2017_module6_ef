@@ -64,6 +64,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BusinessLayerAccess\BusinessLayerAccess.csproj">
+      <Project>{32f50e18-dbba-4f59-bbc0-c3c3ee21949b}</Project>
+      <Name>BusinessLayerAccess</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{49f387b4-838b-4815-91cb-974617b9f0c6}</Project>
       <Name>Domain</Name>
@@ -71,10 +75,6 @@
     <ProjectReference Include="..\Wrapper\Wrapper.csproj">
       <Project>{1c077885-1065-463f-ad2b-8ba348d3b7ca}</Project>
       <Name>Wrapper</Name>
-    </ProjectReference>
-    <ProjectReference Include="Model\BusinessLayerAccess.csproj">
-      <Project>{32f50e18-dbba-4f59-bbc0-c3c3ee21949b}</Project>
-      <Name>BusinessLayerAccess</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
