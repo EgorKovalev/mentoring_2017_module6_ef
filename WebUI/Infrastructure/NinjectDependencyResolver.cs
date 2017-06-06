@@ -1,0 +1,40 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Web.Mvc;
+using Ninject;
+using BusinessLayerAccess.Interfaces;
+using Ullr.Models.Implementations;
+using Domain.Entities;
+using BusinessLayerAccess.Implementations;
+using BusinessLayerAccess.Models;
+
+namespace Ullr.Models.Infrastructure
+{
+    public class NinjectDependencyResolver : IDependencyResolver
+    {
+        private readonly IKernel _kernel;
+
+        public NinjectDependencyResolver(IKernel kernelParam)
+        {
+            _kernel = kernelParam;
+            AddBindings();
+        }
+
+        public object GetService(Type serviceType)
+        {
+            return _kernel.TryGet(serviceType);
+        }
+
+        public IEnumerable<object> GetServices(Type serviceType)
+        {
+            return _kernel.GetAll(serviceType);
+        }
+
+        private void AddBindings()
+        {
+            _kernel.Bind<IAuthProvider>().To<FormsAuthProvider>();
+            _kernel.Bind<IRepository<User>>().To<EfGenericRepository<User>>();
+            _kernel.Bind<IRepository<UserRegisterModel>>().To<EfGenericRepository<UserRegisterModel>>();
+        }
+    }
+}

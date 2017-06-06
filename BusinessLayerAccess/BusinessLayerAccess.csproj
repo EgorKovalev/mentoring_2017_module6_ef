@@ -131,7 +131,10 @@
   <ItemGroup>
     <Compile Include="Implementations\DatabaseContext.cs" />
     <Compile Include="Implementations\EfGenericRepository.cs" />
+    <Compile Include="Interfaces\IAuthProvider.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="Models\FormsAuthProvider.cs" />
+    <Compile Include="Models\UserRegisterModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

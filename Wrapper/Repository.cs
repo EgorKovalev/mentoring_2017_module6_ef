@@ -1,6 +1,7 @@
 ﻿using System;
-using Domain.Entities;
 using BusinessLayerAccess.Implementations;
+using Domain.Entities;
+using BusinessLayerAccess.Interfaces;
 
 namespace Wrapper
 {
@@ -8,15 +9,15 @@ namespace Wrapper
 	{
 		private DatabaseContext _dbContext = new DatabaseContext();
 
-		private EfGenericRepository<Auction> _auctionRepository;
-		private EfGenericRepository<Bid> _bidRepository;
-		private EfGenericRepository<Category> _categoryRepository;
-        private EfGenericRepository<Image> _imageRepository;
-        private EfGenericRepository<Item> _itemRepository;
-        private EfGenericRepository<Period> _periodRepository;
-        private EfGenericRepository<User> _userRepository;
+		private IRepository<Auction> _auctionRepository;
+		private IRepository<Bid> _bidRepository;
+		private IRepository<Category> _categoryRepository;
+        private IRepository<Image> _imageRepository;
+        private IRepository<Item> _itemRepository;
+        private IRepository<Period> _periodRepository;
+        private IRepository<User> _userRepository;
 
-        public EfGenericRepository<Auction> AuctionRepository
+        public IRepository<Auction> AuctionRepository
 		{
 			get
 			{
@@ -28,7 +29,7 @@ namespace Wrapper
 			}
 		}
 
-        public EfGenericRepository<Bid> BidRepository
+        public IRepository<Bid> BidRepository
         {
             get
             {
@@ -40,7 +41,7 @@ namespace Wrapper
             }
         }
 
-        public EfGenericRepository<Category> CategoryRepository
+        public IRepository<Category> CategoryRepository
         {
             get
             {
@@ -52,7 +53,7 @@ namespace Wrapper
             }
         }
 
-        public EfGenericRepository<Image> ImageRepository
+        public IRepository<Image> ImageRepository
         {
             get
             {
@@ -64,7 +65,7 @@ namespace Wrapper
             }
         }
 
-        public EfGenericRepository<Item> ItemRepository
+        public IRepository<Item> ItemRepository
         {
             get
             {
@@ -76,7 +77,7 @@ namespace Wrapper
             }
         }
 
-        public EfGenericRepository<Period> PeriodRepository
+        public IRepository<Period> PeriodRepository
         {
             get
             {
@@ -88,7 +89,7 @@ namespace Wrapper
             }
         }
 
-        public EfGenericRepository<User> UserRepository
+        public IRepository<User> UserRepository
         {
             get
             {

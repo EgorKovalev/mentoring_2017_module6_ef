@@ -5,7 +5,7 @@ using System.Linq.Expressions;
 
 namespace BusinessLayerAccess.Interfaces
 {
-    interface IRepository<T>
+    public interface IRepository<T>
 	{
 		IEnumerable<T> Get(Expression<Func<T, bool>> filter = null, Func<IQueryable<T>, IOrderedQueryable<T>> orderBy = null, string includeProperties = "");
 
