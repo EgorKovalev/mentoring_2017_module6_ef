@@ -2,7 +2,7 @@
 using Domain.Entities;
 using System.Web.Security;
 
-namespace Ullr.Models.Implementations
+namespace BusinessLayerAccess.Providers
 {
     public class FormsAuthProvider : IAuthProvider
     {

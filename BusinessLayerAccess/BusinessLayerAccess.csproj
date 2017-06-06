@@ -133,7 +133,7 @@
     <Compile Include="Implementations\EfGenericRepository.cs" />
     <Compile Include="Interfaces\IAuthProvider.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
-    <Compile Include="Models\FormsAuthProvider.cs" />
+    <Compile Include="Providers\FormsAuthProvider.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

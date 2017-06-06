@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Web.Mvc;
 using Ninject;
 using BusinessLayerAccess.Interfaces;
-using Ullr.Models.Implementations;
 using Domain.Entities;
 using BusinessLayerAccess.Implementations;
+using BusinessLayerAccess.Providers;
 
 namespace Ullr.Models.Infrastructure
 {
