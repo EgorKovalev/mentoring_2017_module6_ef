@@ -17,3 +17,8 @@
 /CodeFirst/packages/AutoMapper.6.0.2
 /BusinessLayerAccess/bin/Debug
 /BusinessLayerAccess/obj/Debug
+/WebUI/WebUI.csproj.user
+/WebUI/obj/Debug
+/WebUI/bin
+/CodeFirst/.vs/config
+/CodeFirst/packages
