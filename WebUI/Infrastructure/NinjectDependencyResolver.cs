@@ -6,7 +6,6 @@ using BusinessLayerAccess.Interfaces;
 using Ullr.Models.Implementations;
 using Domain.Entities;
 using BusinessLayerAccess.Implementations;
-using BusinessLayerAccess.Models;
 
 namespace Ullr.Models.Infrastructure
 {
@@ -33,8 +32,7 @@ namespace Ullr.Models.Infrastructure
         private void AddBindings()
         {
             _kernel.Bind<IAuthProvider>().To<FormsAuthProvider>();
-            _kernel.Bind<IRepository<User>>().To<EfGenericRepository<User>>();
-            _kernel.Bind<IRepository<UserRegisterModel>>().To<EfGenericRepository<UserRegisterModel>>();
+            _kernel.Bind<IRepository<User>>().To<EfGenericRepository<User>>();            
         }
     }
 }
