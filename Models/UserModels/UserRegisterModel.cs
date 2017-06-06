@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace BusinessLayerAccess.Models
+namespace Models.UserModels
 {
     public class UserRegisterModel
     {

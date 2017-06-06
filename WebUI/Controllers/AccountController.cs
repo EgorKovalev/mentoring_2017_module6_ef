@@ -1,11 +1,11 @@
 ﻿using BusinessLayerAccess.Interfaces;
-using BusinessLayerAccess.Models;
 using Domain.Entities;
 using System.Linq;
 using System.Web.Mvc;
 using System.Web.Security;
 using Wrapper;
 using AutoMapper;
+using Models.UserModels;
 
 namespace Ullr.WebUI.Controllers
 {

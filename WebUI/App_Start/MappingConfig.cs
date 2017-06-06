@@ -1,9 +1,5 @@
-﻿using BusinessLayerAccess.Models;
-using Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using Domain.Entities;
+using Models.UserModels;
 
 namespace WebUI.App_Start
 {

@@ -2,7 +2,6 @@
 using BusinessLayerAccess.Implementations;
 using Domain.Entities;
 using BusinessLayerAccess.Interfaces;
-using BusinessLayerAccess.Models;
 
 namespace Wrapper
 {
