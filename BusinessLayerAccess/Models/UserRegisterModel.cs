@@ -10,7 +10,7 @@ namespace BusinessLayerAccess.Models
 
         [Required]
         [Display(Name = "Введите логин")]
-        public string UserName { get; set; }
+        public string Login { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "Пароль должен содержать не менее {2} символов", MinimumLength = 6)]

@@ -2,6 +2,7 @@
 using BusinessLayerAccess.Implementations;
 using Domain.Entities;
 using BusinessLayerAccess.Interfaces;
+using BusinessLayerAccess.Models;
 
 namespace Wrapper
 {
@@ -16,7 +17,7 @@ namespace Wrapper
         private IRepository<Item> _itemRepository;
         private IRepository<Period> _periodRepository;
         private IRepository<User> _userRepository;
-
+        
         public IRepository<Auction> AuctionRepository
 		{
 			get

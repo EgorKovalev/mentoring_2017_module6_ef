@@ -4,6 +4,8 @@ using Domain.Entities;
 using System.Linq;
 using System.Web.Mvc;
 using System.Web.Security;
+using Wrapper;
+using AutoMapper;
 
 namespace Ullr.WebUI.Controllers
 {
@@ -11,12 +13,11 @@ namespace Ullr.WebUI.Controllers
     public class AccountController : Controller
     {
         private readonly IAuthProvider _authProvider;
-        private readonly IRepository<UserRegisterModel> _userRepository;
+        private Repository _context = new Repository();
 
-        public AccountController(IAuthProvider authProvider, IRepository<UserRegisterModel> userRepository)
+        public AccountController(IAuthProvider authProvider)
         {
-            _authProvider = authProvider;
-            _userRepository = userRepository;
+            _authProvider = authProvider;            
         }
 
         [AllowAnonymous]
@@ -80,13 +81,22 @@ namespace Ullr.WebUI.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (_userRepository.Get().Any(u => u.UserName.Equals(user.UserName)))
+                if (_context.UserRepository.Get().Any(u => u.Login.Equals(user.Login)))
                 {
                     ViewBag.Message = "Пользователь с таким именем существует";
                 }
                 else
                 {
-                    _userRepository.Add(user);
+                    var config = new MapperConfiguration(cfg => {
+                        cfg.CreateMap<UserRegisterModel, User>();
+                    });
+
+                    IMapper mapper = config.CreateMapper();
+                    var userEntity = mapper.Map<UserRegisterModel, User>(user);
+                    
+                    _context.UserRepository.Add(userEntity);
+                    _context.CommitChanges();
+
                     ModelState.Clear();
                     user = null;
                     

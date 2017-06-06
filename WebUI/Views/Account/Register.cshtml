@@ -1,4 +1,4 @@
-﻿@model Ullr.Models.Models.RegisterViewModel
+﻿@model BusinessLayerAccess.Models.UserRegisterModel
 
 @{
     ViewBag.Title = "Register";
@@ -35,11 +35,11 @@
             @Html.ValidationMessageFor(model => model.Email)
         </div>
         <div class="editor-label">
-            @Html.LabelFor(model => model.UserName)
+            @Html.LabelFor(model => model.Login)
         </div>
         <div class="editor-field">
-            @Html.EditorFor(model => model.UserName)
-            @Html.ValidationMessageFor(model => model.UserName)
+            @Html.EditorFor(model => model.Login)
+            @Html.ValidationMessageFor(model => model.Login)
         </div>
 
         <div class="editor-label">
