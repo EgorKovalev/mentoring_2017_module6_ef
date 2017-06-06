@@ -87,14 +87,9 @@ namespace Ullr.WebUI.Controllers
                 }
                 else
                 {
-                    var config = new MapperConfiguration(cfg => {
-                        cfg.CreateMap<UserRegisterModel, User>();
-                    });
-
-                    IMapper mapper = config.CreateMapper();
-                    var userEntity = mapper.Map<UserRegisterModel, User>(user);
+                    var entity = Mapper.Map<UserRegisterModel, User>(user);
                     
-                    _context.UserRepository.Add(userEntity);
+                    _context.UserRepository.Add(entity);
                     _context.CommitChanges();
 
                     ModelState.Clear();
