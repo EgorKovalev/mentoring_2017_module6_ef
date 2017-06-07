@@ -99,6 +99,11 @@ namespace Ullr.WebUI.Controllers
                 }
             }
             return View(user);
-        }        
-	}
+        }  
+        
+        public ActionResult Timer()
+        {
+            return View();
+        }
+    }
 }
